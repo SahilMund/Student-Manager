@@ -1,34 +1,37 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-// import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { AdminPage, ParentPage, StudentPage, TeacherPage } from './pages';
+import EventListPage from './pages/list/events';
+import DashboardLayout from './hoc/dashboardLayout';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div className="">
-        <a href="https://vite.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1 className="bg-red-700 text-3xl font-bold underline">Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <DashboardLayout>
+              <EventListPage />
+            </DashboardLayout>
+          }
+        />
+
+        <Route path="/parent" element={<ParentPage />} />
+        <Route path="/student" element={<StudentPage />} />
+        <Route path="/teacher" element={<TeacherPage />} />
+        <Route path="/admin" element={<AdminPage />} />
+        <Route
+          path="/list/events"
+          element={
+            <DashboardLayout>
+              <EventListPage />
+            </DashboardLayout>
+          }
+        />
+
+        <Route path="*" element={<h1>Page not found</h1>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

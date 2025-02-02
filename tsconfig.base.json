@@ -1,0 +1,30 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+      "rootDir": ".",
+      "sourceMap": true,
+      "declaration": false,
+      "moduleResolution": "node",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "importHelpers": true,
+      "target": "ESNext",
+      "module": "esnext",
+      "lib": ["es2020", "dom"],
+      "skipLibCheck": true,
+      "skipDefaultLibCheck": true,
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "baseUrl": ".",
+      "paths": {
+       
+        //for reference
+        // "@module_name/hooks": ["libs/hooks/src/index.ts"],
+        // "@module_name/http-client": ["libs/services/http-client/src/index.ts"],
+       
+      }
+    },
+    "exclude": ["node_modules"],
+    "include": ["vite-env.d.ts"]
+  }
+  
